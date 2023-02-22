@@ -1,3 +1,31 @@
+var currentDay=document.getElementById('currentDay')
+var ele = document.getElementsByClassName('time-block');
+console.log(currentDay)
+var idArray=[]
+for (var i=0; i< ele.length; i++ ) {
+  idArray.push(ele[i].id);
+}
+console.log(idArray)
+function displayDay(){
+  today=dayjs().format('[Today is: ]MMM, DD')
+  currentDay.textContent=today
+}
+function timeCheck(){
+  for (i=0; i<idArray.length;i++){
+    let timeBlocks=document.getElementById(idArray[i])
+    console.log(timeBlocks)
+    if(timeBlocks.id == dayjs().format('H'))
+    timeBlocks.classList.add('present')
+    if(timeBlocks.id < dayjs().format('H'))
+    timeBlocks.classList.add('past')
+    if(timeBlocks.id > dayjs().format('H'))
+    timeBlocks.classList.add('future')
+    console.log(dayjs().format('H'))
+  }
+}
+timeCheck()
+displayDay()
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
