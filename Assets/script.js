@@ -14,11 +14,12 @@ function timeCheck(){
   for (i=0; i<idArray.length;i++){
     let timeBlocks=document.getElementById(idArray[i])
     console.log(timeBlocks)
-    if(timeBlocks.id == dayjs().format('H'))
+    let timeInt=parseInt(timeBlocks.id)
+    if(timeInt == dayjs().format('H'))
     timeBlocks.classList.add('present')
-    if(timeBlocks.id < dayjs().format('H'))
+    if(timeInt < dayjs().format('H'))
     timeBlocks.classList.add('past')
-    if(timeBlocks.id > dayjs().format('H'))
+    if(timeInt > dayjs().format('H'))
     timeBlocks.classList.add('future')
     console.log(dayjs().format('H'))
   }
