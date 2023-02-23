@@ -32,13 +32,14 @@ function timeCheck(){
   }
 }
 
-buttons.eventLister('click',function(event){
-  let textArea= event.parentElement.secondChild;
-  console.log (textArea.val)
-  localStorage.setItem(event.parentElement.id,textArea.val)
+buttons.eventListener('click',save())
 
-})
+function save(event){
 
+  let parentId= event.target.parentElement
+  console.log(parentId)
+
+}
 
 timeCheck()
 displayDay()
