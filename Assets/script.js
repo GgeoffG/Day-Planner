@@ -33,7 +33,9 @@ function timeCheck(){
 }
 
 buttons.eventLister('click',function(event){
-  localStorage.setItem(event.parentElement.id,textarea.val)
+  let textArea= event.parentElement.secondChild;
+  console.log (textArea.val)
+  localStorage.setItem(event.parentElement.id,textArea.val)
 
 })
 
