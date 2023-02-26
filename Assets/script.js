@@ -6,13 +6,13 @@ var idArray=[]
 for (var i=0; i< ele.length; i++ ) {
   idArray.push(ele[i].id);
 }
-var buttons=document.getElementsByClassName('btn')
+var buttons=document.querySelectorAll('.btn')
 var buttonArray= []
 for( i=0; i<buttons.length; i++){
   buttonArray.push(buttons[i].parentElement.id)
 }
-
-
+console.log(buttons)
+console.log(buttonArray)
 
 function displayDay(){
   today=dayjs().format('[Today is: ]MMM, DD')
@@ -32,15 +32,15 @@ function timeCheck(){
   }
 }
 
-buttons.eventListener('click',save())
+buttons.forEach(button => {
+  
+  button.addEventListener('click', (event) => {
+    let textInput= event.target.previousSibling.value
+    let blockId= event.target.parentElement.id
+    console.log(textInput)
 
-function save(event){
-
-  let parentId= event.target.parentElement
-  console.log(parentId)
-
-}
-
+  })
+})
 timeCheck()
 displayDay()
 
